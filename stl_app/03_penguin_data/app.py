@@ -13,12 +13,15 @@ choices = ['bill_length_mm',
 
 # https://docs.streamlit.io/library/api-reference/widgets/st.selectbox
 # 1. สร้าง st.selectbox ของ ตัวเลือก แกน x และ y จาก choices
-selected_x_var = 'อะไรดี'
-selected_y_var = 'อะไรดี'
+#selected_x_var = 'อะไรดี'
+#selected_y_var = 'อะไรดี'
+selected_x_var = st.selectbox('select x variable',choices)
+selected_y_var = st.selectbox('select y variable', choices)
 
 # https://docs.streamlit.io/library/api-reference/widgets/st.file_uploader
 # 2. สร้าง st.file_uploader เพื่อให้เลือกไฟล์ .csv เท่านั้น จากเครื่องผู้ใช้งาน
-penguin_file = None
+#penguin_file = None
+penguin_file = st.file_uploader('select file penguin.csv then upload', type=['csv'])
 
 if penguin_file is not None:
     penguins_df = pd.read_csv(penguin_file)
